@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import '@maxhub/max-ui/dist/styles.css';
+import { MaxUI, Panel, Button } from "@maxhub/max-ui";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+return (
+  <MaxUI>
+    <Panel centeredX centeredY>
+      <Button>
+        Hello world!
+      </Button>
+    </Panel>
+  </MaxUI>
+)
 
 export default App;
