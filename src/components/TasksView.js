@@ -9,10 +9,10 @@ function getTasksByDate(tasks) {
         const month = taskDate.getMonth();
         const day = taskDate.getDate();
         if (result[year] == null) {
-            result[year] = new Map();
+            result[year] = {};
         }
         if (result[year][month] == null) {
-            result[year][month] = new Map();
+            result[year][month] = {};
         }
         if (result[year][month][day] == null) {
             result[year][month][day] = [];
@@ -84,7 +84,7 @@ function TasksView() {
     tomorrow.setDate(tomorrow.getDate() + 1);
     const dayInMonth = new Date();
     dayInMonth.setDate(dayInMonth.getDate() + 2);
-    const tasks = [
+    var tasks = [
         {
             name: "Новая задача",
             time: `2025-11-${today.getDate()} 10:00`
@@ -106,6 +106,10 @@ function TasksView() {
             time: `2025-11-${dayInMonth.getDate()} 23:59`
         },
     ];
+    tasks = tasks.map(t => ({
+        name: t.name,
+        time: t.time.replace(/-/g, "/")
+    }));
     const views = [];
 
     const taskMap = getTasksByDate(tasks);

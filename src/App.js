@@ -10,19 +10,19 @@ const App = () => {
         <div className="full-height-child">
             <MaxUI>
                 <Container>
-                <Panel style={{marginTop: "15px", marginBottom: "15px"}}>
-                    <Flex direction="row" gap={32}>
-                        <ToolButton onClick={() => setActiveTab(0)}>Задачи</ToolButton>
-                        <ToolButton onClick={() => setActiveTab(1)}>Календарь</ToolButton>
-                    </Flex>
-                </Panel>
+                    <Panel style={{ marginTop: "15px", marginBottom: "15px" }}>
+                        < Flex direction="row" gap={32} >
+                            <ToolButton onClick={() => setActiveTab(0)}>Задачи</ToolButton>
+                            <ToolButton onClick={() => setActiveTab(1)}>Календарь</ToolButton>
+                        </Flex >
+                    </Panel >
 
                     {(activeTab === 0) &&
                         <TasksView />
                     }
-                </Container>
-            </MaxUI>
-        </div>
+                </Container >
+            </MaxUI >
+        </div >
     )
 }
 
