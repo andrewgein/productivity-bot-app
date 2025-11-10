@@ -17,7 +17,7 @@ const App = () => {
                     </Flex>
                 </Panel>
 
-                    {(activeTab == 0) &&
+                    {(activeTab === 0) &&
                         <TasksView />
                     }
                 </Container>

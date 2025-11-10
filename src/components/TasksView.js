@@ -15,7 +15,7 @@ function getTasksByDate(tasks) {
             result[year][month] = new Map();
         }
         if (result[year][month][day] == null) {
-            result[year][month][day] = new Array();
+            result[year][month][day] = [];
         }
         result[year][month][day].push(task);
     }
