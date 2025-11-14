@@ -22,7 +22,7 @@ function NavigationBar() {
             </IconButton>
 
             <Panel
-                className={`fixed top-0 h-full
+                className={`fixed top-0 h-full z-[1]
         ${isOpen ? "w-60 p-4" : "w-0 py-0"}
         overflow-hidden flex flex-col transition-width ease-in-out duration-300`}
             >

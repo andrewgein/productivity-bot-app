@@ -60,51 +60,57 @@ function TaskListView() {
     for (let taskId in tasks) {
         views.push(
             <CellSimple key={taskId} className="static"
-                before={tasks[taskId].complete ? <i className="fa fa-check-circle" /> : <i className="fa fa-circle" />}
-                after={
-                    <Button mode="secondary" onClick={() => {
-                        Modal.open(TaskEditorModal, {
-                            task: tasks[taskId],
-                            onSave: async (updatedTask) => {
-                                await Api.updateTask(updatedTask);
-                                setTasks(tasks =>
-                                    tasks.map(task =>
-                                        task.id == taskId
-                                            ? { ...task, ...updatedTask }
-                                            : task
-                                    ));
-                            },
-                            onDelete: async (task) => {
-                                await Api.deleteTask(task.id);
-                                setTasks(tasks => tasks.filter(t => t.id != task.id));
-                            }
-                        })
-                    }} >
-                        <i className="fa-solid fa-pencil" />
-                    </Button>
+                before={
+                    <IconButton mode="tertiary" appearance="contrast-static" className="z-0 relative"
+                        onClick={() => toggleTask(tasks[taskId])}
+                    >
+                        {tasks[taskId].complete ? <i className="relative fa fa-check-circle" /> : <i className="relative fa fa-circle" />}
+                    </IconButton >
                 }
-                title={tasks[taskId].name}
-                subtitle={getTags(tasks[taskId])}
-                onClick={() => toggleTask(tasks[taskId])}
-            />);
+    after = {
+                    < Button mode = "secondary" onClick = {() => {
+        Modal.open(TaskEditorModal, {
+            task: tasks[taskId],
+            onSave: async (updatedTask) => {
+                await Api.updateTask(updatedTask);
+                setTasks(tasks =>
+                    tasks.map(task =>
+                        task.id == taskId
+                            ? { ...task, ...updatedTask }
+                            : task
+                    ));
+            },
+            onDelete: async (task) => {
+                await Api.deleteTask(task.id);
+                setTasks(tasks => tasks.filter(t => t.id != task.id));
+            }
+        })
+    }
+} >
+    <i className="fa-solid fa-pencil" />
+                    </Button >
+                }
+title = { tasks[taskId].name }
+subtitle = { getTags(tasks[taskId]) }
+    />);
     }
 
-    return (
-        <Container className="px-2 pt-6">
-            <CellList>{views}</CellList>
-            <IconButton className="absolute bottom-4 right-4 z-2" onClick={() => {
-                Modal.open(TaskEditorModal, {
-                    task: createTask(),
-                    onSave: async (createdTask) => {
-                        createdTask = await Api.addTask(createdTask);
-                        setTasks([...tasks, createdTask]);
-                    }
-                });
-            }}>
-                <i className="fa-solid fa-plus" />
-            </IconButton>
-        </Container>
-    );
+return (
+    <Container className="px-2 pt-6">
+        <CellList>{views}</CellList>
+        <IconButton className="absolute bottom-4 right-4 z-2" onClick={() => {
+            Modal.open(TaskEditorModal, {
+                task: createTask(),
+                onSave: async (createdTask) => {
+                    createdTask = await Api.addTask(createdTask);
+                    setTasks([...tasks, createdTask]);
+                }
+            });
+        }}>
+            <i className="fa-solid fa-plus" />
+        </IconButton>
+    </Container>
+);
 }
 
 export default TaskListView;
