@@ -7,11 +7,6 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Build React App') {
-            steps {
-                sh 'npm run build'
-            }
-        }
         stage('Deploy') {
             steps {
                 sh 'npm run start'
