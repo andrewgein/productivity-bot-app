@@ -24,14 +24,14 @@ function NavigationBar() {
             <Panel
                 className={`fixed top-0 h-full
         ${isOpen ? "w-60 p-4" : "w-0 py-0"}
-        overflow-hidden flex flex-col transition-margin duration-300`}
+        overflow-hidden flex flex-col transition-width ease-in-out duration-300`}
             >
-                <nav className="pt-16 flex flex-col space-y-3 text-nowrap">
+                <nav className="pt-16 flex flex-col space-y-3">
                     {links.map((link) => (
                         <Link
                             key={link.path}
                             to={link.path}
-                            className={`px-3 py-2 rounded-md ${location.pathname === link.path
+                            className={`px-3 py-2 rounded-md text-nowrap whitespace-nowrap ${location.pathname === link.path
                                 ? "bg-gray-700"
                                 : "hover:bg-gray-700"
                                 }`}

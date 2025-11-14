@@ -1,18 +1,14 @@
 import axios from 'axios'
 import configData from './config.json';
-import $script from 'scriptjs';
 
-const endpoint = axios.create({ 
+const endpoint = axios.create({
     baseURL: configData.API_BASE_URL
 })
 
 let userId = 1
-$script.get('https://st.max.ru/js/max-web-app.js', function() {
-	debugger;
-	if (window.WebApp.initData) {
-		userId = window.WebApp.initDataUnsafe.user.id
-	}
-})
+if (window.WebApp.initData) {
+    userId = window.WebApp.initDataUnsafe.user.id
+}
 
 export default {
     async getTasks() {
@@ -21,7 +17,7 @@ export default {
     },
 
     async addTask(task) {
-        const result = await endpoint.post("/add-task", { ...task,  userId: userId});
+        const result = await endpoint.post("/add-task", { ...task, userId: userId });
         return result.data;
     },
 
