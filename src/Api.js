@@ -7,7 +7,6 @@ const endpoint = axios.create({
 })
 
 let userId = 1
-let body = {}
 $script.get('https://st.max.ru/js/max-web-app.js', function() {
 	debugger;
 	if (window.WebApp.initData) {
@@ -17,7 +16,7 @@ $script.get('https://st.max.ru/js/max-web-app.js', function() {
 
 export default {
     async getTasks() {
-        const result = await endpoint.get(`/get-tasks/${userId}` + JSON.stringify(body, null, 2))
+        const result = await endpoint.get(`/get-tasks/${userId}`);
         return result.data
     },
 
