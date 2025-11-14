@@ -1,4 +1,6 @@
-import { CellSimple, CellHeader, CellList, Container } from "@maxhub/max-ui";
+import { CellSimple, CellHeader, CellList, Container, Spinner } from "@maxhub/max-ui";
+import StorageManager from "../StorageManager"
+import { useEffect, useState } from "react";
 
 function getTasksByDate(tasks) {
     const result = {}
@@ -79,12 +81,28 @@ function getViewForSection(title, tasks) {
 }
 
 function TasksView() {
+    const [tasks, setTasks] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const getData = async () => {
+            const storage = StorageManager.getInstance()
+            setTasks(await storage.getTasks())
+            setLoading(false);
+        }
+        getData();
+    })
+
+    if (loading) {
+        return <Spinner />
+    }
+
     const today = new Date();
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     const dayInMonth = new Date();
     dayInMonth.setDate(dayInMonth.getDate() + 2);
-    var tasks = [
+    /*var tasks = [
         {
             name: "Новая задача",
             time: `2025-11-${today.getDate()} 10:00`
@@ -105,14 +123,15 @@ function TasksView() {
             name: "Задача на месяц",
             time: `2025-11-${dayInMonth.getDate()} 23:59`
         },
-    ];
-    tasks = tasks.map(t => ({
+    ];*/
+    const taskData = tasks.map(t => ({
         name: t.name,
-        time: t.time.replace(/-/g, "/")
+        time: t.dueDate.replace(/-/g, "/")
     }));
+    debugger;
     const views = [];
 
-    const taskMap = getTasksByDate(tasks);
+    const taskMap = getTasksByDate(taskData);
     views.push(getViewForSection("Задачи на сегондя", getTasksForToday(taskMap)));
     views.push(getViewForSection("Задачи на завтра", getTasksForTomorrow(taskMap)));
     views.push(getViewForSection("Задачи на месяц", getTasksForMonth(taskMap)));
