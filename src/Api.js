@@ -6,13 +6,13 @@ const endpoint = axios.create({
 })
 export default {
     async getTasks() {
-        const maxId = /*Window.WebAppData.user.id*/87852389 
+        const maxId = Window.WebAppData.user.id || 87852389
         const result = await endpoint.get(`/get-tasks/${maxId}`)
         return result.data
     },
 
     async addTask(task) {
-        const maxId = /*Window.WebAppData.user.id*/87852389 
+        const maxId = Window.WebAppData.user.id || 87852389
         const result = await endpoint.post("/add-task", { ...task,  userId: maxId});
         return result.data;
     },
