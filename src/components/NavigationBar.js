@@ -16,6 +16,7 @@ function NavigationBar() {
         <>
             <IconButton
                 className="absolute top-4 left-4 z-2"
+                mode={isOpen ? "tertiary" : "primary"}
                 onClick={() => setIsOpen(!isOpen)}
             >
                 {isOpen ? <i className="fa-solid fa-xmark"></i> : <i className="fa-solid fa-bars"></i>}
