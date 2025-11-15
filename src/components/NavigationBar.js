@@ -32,8 +32,8 @@ function NavigationBar() {
                             key={link.path}
                             to={link.path}
                             className={`px-3 py-2 rounded-md text-nowrap whitespace-nowrap ${location.pathname === link.path
-                                ? "bg-gray-700"
-                                : "hover:bg-gray-700"
+                                ? "bg-gray-300 dark:bg-gray-700"
+                                : "hover:bg-gray-300 dark:hover:bg-gray-700"
                                 }`}
                             onClick={() => setIsOpen(false)}
                         >

@@ -75,7 +75,7 @@ function TaskListView(props) {
         views.push(
             <CellSimple key={taskId} className="static"
                 before={
-                    <IconButton mode="tertiary" appearance="contrast-static" className="z-0 relative"
+                    <IconButton mode="tertiary" appearance="neutral" className="z-0 relative"
                         onClick={() => toggleTask(tasks[taskId])}
                     >
                         {isCompleted(tasks[taskId]) ? <i className="relative fa fa-check-circle" /> : <i className="relative fa fa-circle" />}
