@@ -1,5 +1,15 @@
+import { Container } from "@maxhub/max-ui";
+import CategoryHeader from "./CategoryHeader";
+import TaskListView from "./TaskListView";
+
 function ScheduledTasksView() {
-    return <h2 className="text-2xl font-semibold ml-10">Запланированные задачи</h2>
+    return (
+        <Container className="w-full">
+            <CategoryHeader title="Запланированные задачи" />
+            <TaskListView category="Scheduled"/>
+        </Container>
+    );
+
 }
 
 export default ScheduledTasksView

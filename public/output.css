@@ -593,6 +593,10 @@ video {
   z-index: 1;
 }
 
+.z-\[3\] {
+  z-index: 3;
+}
+
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -629,6 +633,10 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+.mr-5 {
+  margin-right: 1.25rem;
 }
 
 .flex {
@@ -698,6 +706,14 @@ video {
   background-color: rgb(55 65 81 / var(--tw-bg-opacity, 1));
 }
 
+.fill-red-50 {
+  fill: #fef2f2;
+}
+
+.fill-green-600 {
+  fill: #16a34a;
+}
+
 .p-4 {
   padding: 1rem;
 }
@@ -749,6 +765,26 @@ video {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.text-red-50 {
+  --tw-text-opacity: 1;
+  color: rgb(254 242 242 / var(--tw-text-opacity, 1));
+}
+
+.text-red-600 {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity, 1));
+}
+
+.text-green-600 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity, 1));
+}
+
+.overline {
+  -webkit-text-decoration-line: overline;
+          text-decoration-line: overline;
 }
 
 .filter {

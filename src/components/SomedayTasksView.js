@@ -1,5 +1,14 @@
+import { Container } from "@maxhub/max-ui";
+import CategoryHeader from "./CategoryHeader";
+import TaskListView from "./TaskListView";
+
 function SomedayTasksView() {
-    return <h2 className="text-2xl font-semibold ml-10">Когда-нибудь</h2>;
+    return (
+        <Container className="w-full">
+            <CategoryHeader title="Когда-нибудь" />
+            <TaskListView category="Someday" />
+        </Container>
+    );
 }
 
 export default SomedayTasksView;
