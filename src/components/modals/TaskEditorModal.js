@@ -111,7 +111,7 @@ function TaskEditorModal(props) {
         return interval != "" && !isNaN(Number(interval)) && (Number(interval) > 0)
     }
     const isValidDate = () => {
-        return (new Date(date)) && (new Date(date) > new Date())
+        return (new Date(date.replace(/-/g, "/"))) && (new Date(date.replace(/-/g, "/")) > new Date())
     }
 
     const isValid = () => {
