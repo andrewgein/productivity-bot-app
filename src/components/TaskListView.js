@@ -4,6 +4,8 @@ import StorageManager from "../StorageManager";
 import { Modal } from "./Modal";
 import TaskEditorModal from "./modals/TaskEditorModal";
 import Api from "../Api";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle, faCircle, faPencil, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 function TaskListView(props) {
     const [tasks, setTasks] = useState(null);
@@ -78,7 +80,10 @@ function TaskListView(props) {
                     <IconButton mode="tertiary" appearance="neutral" className="z-0 relative"
                         onClick={() => toggleTask(tasks[taskId])}
                     >
-                        {isCompleted(tasks[taskId]) ? <i className="relative fa fa-check-circle" /> : <i className="relative fa fa-circle" />}
+                        {isCompleted(tasks[taskId]) ? 
+                            <FontAwesomeIcon icon={faCheckCircle} className="relative" /> : 
+                            <FontAwesomeIcon icon={faCircle} />
+                        }
                     </IconButton >
                 }
                 after={
@@ -101,7 +106,7 @@ function TaskListView(props) {
                         })
                     }
                     } >
-                        <i className="fa-solid fa-pencil" />
+                        <FontAwesomeIcon icon={faPencil} />
                     </Button >
                 }
                 title={tasks[taskId].name}
@@ -122,7 +127,7 @@ function TaskListView(props) {
                     }
                 });
             }}>
-                <i className="fa-solid fa-plus" />
+                <FontAwesomeIcon icon={faPlus} />
             </IconButton>
         </Container>
     );

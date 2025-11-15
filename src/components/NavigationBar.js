@@ -1,3 +1,5 @@
+import { faBars, faCalendarDay, faForward, faMugHot, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconButton, Panel } from '@maxhub/max-ui';
 import { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
@@ -7,9 +9,9 @@ function NavigationBar() {
     const [isOpen, setIsOpen] = useState(false);
 
     const links = [
-        { name: "Актуальное", path: "/", icon: "fa-solid fa-forward" },
-        { name: "Запланированные", path: "/scheduled", icon: "fa-solid fa-calendar-days" },
-        { name: "Когда-нибудь", path: "/someday", icon: "fa-solid fa-mug-hot" },
+        { name: "Актуальное", path: "/", icon: faForward },
+        { name: "Запланированные", path: "/scheduled", icon: faCalendarDay },
+        { name: "Когда-нибудь", path: "/someday", icon: faMugHot },
     ];
 
     return (
@@ -19,7 +21,8 @@ function NavigationBar() {
                 mode={isOpen ? "tertiary" : "primary"}
                 onClick={() => setIsOpen(!isOpen)}
             >
-                {isOpen ? <i className="fa-solid fa-xmark"></i> : <i className="fa-solid fa-bars"></i>}
+                {isOpen ? <FontAwesomeIcon icon={faXmark} /> :
+                    <FontAwesomeIcon icon={faBars} />}
             </IconButton>
 
             <Panel
@@ -38,7 +41,7 @@ function NavigationBar() {
                                 }`}
                             onClick={() => setIsOpen(false)}
                         >
-                            <i className={`${link.icon} mr-3`} />
+                            <FontAwesomeIcon icon={link.icon} className="mr-3" />
                             {link.name}
                         </Link>
                     ))}

@@ -2,9 +2,13 @@ import { Button, IconButton, CellList, CellSimple, Flex, Panel, Textarea, Typogr
 import { useState } from "react";
 import { useModalWindow } from "react-modal-global";
 import "react-modal-global/styles/modal.scss"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck, faCoffee, faPlus, faTrash, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 function Tag(props) {
-    return <CellSimple title={props.name} after={<IconButton mode="tertiary" appearance="negative"><i className="fa-solid fa-trash" onClick={props.onDelete} /></IconButton>} />
+    return <CellSimple title={props.name} after={<IconButton mode="tertiary" appearance="negative">
+        <FontAwesomeIcon icon={faTrash} onClick={props.onDelete} />
+        </IconButton>} />
 }
 
 function formatDate(date) {
@@ -19,8 +23,8 @@ function formatDate(date) {
 
 function getValidationIcon(condition) {
     return condition() ?
-        <i className="text-green-600 fa-solid fa-check" /> :
-        <i className="text-red-600 fa-solid fa-xmark" />
+        <FontAwesomeIcon icon={faCheck} className="text-green-600" /> :
+        <FontAwesomeIcon icon={faXmark} className="text-red-600" />
 }
 
 function TaskEditorModal(props) {
@@ -149,7 +153,7 @@ function TaskEditorModal(props) {
                         <Input placeholder="Новый тег" className="w-full" compact={true} value={tagName}
                             onChange={handleTagNameChange} />
                         <Button onClick={addTag}>
-                            <i className="fa-solid fa-plus" />
+                            <FontAwesomeIcon icon={faPlus}/>
                         </Button>
                     </Flex>
                 </CellSimple>
