@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, CellList, CellSimple, Spinner, Container, Flex, IconButton } from "@maxhub/max-ui";
 import StorageManager from "../StorageManager";
 import { Modal } from "./Modal";

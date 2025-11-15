@@ -1,8 +1,8 @@
 import '@maxhub/max-ui/dist/styles.css'
 import { useState } from 'react';
-import { MaxUI, Panel, Flex, Container, ToolButton, Spinner } from "@maxhub/max-ui";
+import { MaxUI, Panel } from "@maxhub/max-ui";
 import NavigationBar from './components/NavigationBar';
-import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NextTasksView from './components/NextTasksView';
 import ScheduledTasksView from './components/ScheduledTasksView';
 import SomedayTasksView from './components/SomedayTasksView';

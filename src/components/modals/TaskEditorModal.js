@@ -1,5 +1,5 @@
-import { Button, IconButton, CellAction, CellInput, CellList, CellSimple, Flex, Panel, Textarea, Typography, Input } from "@maxhub/max-ui";
-import { useState, useEffect } from "react";
+import { Button, IconButton, CellList, CellSimple, Flex, Panel, Textarea, Typography, Input } from "@maxhub/max-ui";
+import { useState } from "react";
 import { useModalWindow } from "react-modal-global";
 import "react-modal-global/styles/modal.scss"
 
